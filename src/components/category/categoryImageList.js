@@ -12,13 +12,13 @@ export const CategoryImage=[
     },
     {
     title:"Mens's clothing",
-        name:"Mens's clothing",
+        name:"men's clothing",
         imgLink:"https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA3L3Vwd2s2MTg0MzM0NC13aWtpbWVkaWEtaW1hZ2UtbGtocWw2YWIuanBn.jpg"
 
         },
         {
             title:"Jwelery",
-        name:"Jwelery",
+        name:"jewelery",
         imgLink:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL1w3j8_hQfXJIyiVycO6RhNpWvuRtj1GKig&s"
     }
 ]

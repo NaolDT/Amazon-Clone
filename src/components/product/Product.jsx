@@ -22,7 +22,7 @@ setProduct(res.data)
 {
     products.map((singleProduct)=>{
 
-return <ProductCard products={singleProduct} key={singleProduct.id}/>
+return <ProductCard products={singleProduct} key={singleProduct.id}   addCart={true}/>
     })
 }
 </section>  
