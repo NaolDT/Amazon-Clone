@@ -56,10 +56,10 @@ return(
     )
     :(  <><p>Hello,Sign in</p></>)}
 
-        <span>Account & Lists</span>
+        {/* <span>Account & Lists</span> */}
         
     </Link>
-<Link to="/order">
+<Link to="/orders">
     <p>returns</p>
     <span>& Orders</span>
 </Link>

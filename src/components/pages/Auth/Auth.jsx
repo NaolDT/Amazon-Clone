@@ -1,11 +1,12 @@
 import React, { useState,useContext } from 'react'
 import classes from './auth.module.css'
-import { Link,Navigate, useNavigate } from 'react-router-dom'
+import { Link,Navigate, useNavigate,useLocation } from 'react-router-dom'
 import { auth } from '../../../utility/firebase'
 import {signInWithEmailAndPassword,createUserWithEmailAndPassword} from "firebase/auth"
 import { DataContext } from '../../DataProvider/DataProvider'
 import { Type } from '../../../utility/action.type'
 import { ClipLoader } from 'react-spinners'
+
 function Auth() {
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
@@ -15,6 +16,7 @@ function Auth() {
     signUp:false
   })
   const [{user},dispatch]=useContext(DataContext)
+  const navStateData=useLocation();
   const navigate=useNavigate();
   // console.log(user)
   const authHandler=async(e)=>{
@@ -29,7 +31,7 @@ dispatch({
 user:userInfo.user
 })
 setLoading({...loading,signIn:false})
-navigate("/")
+navigate(navStateData?.state?.redirect || "/")
       }).catch((err)=>{
 setError(err.message)  
 setLoading({...loading,signIn:false})
@@ -46,7 +48,7 @@ dispatch({
 user:userInfo.user
 })
             setLoading({...loading,signUp:false})
-navigate("/")
+navigate(navStateData?.state?.redirect || "/");
 
       }).catch((err)=>{
 setError(err.message)   
@@ -67,6 +69,7 @@ setError(err.message)
  </Link>
  <div className={classes.login_container}>
   <h1>Sign-In</h1>
+  {navStateData?.state?.msg && <small style={{color:"red",padding:"5px",textAlign:"center", fontWeight:"bold"}}>{navStateData?.state?.msg}</small>}
   <form action="">
     <label htmlFor='email'>E-mail</label>
     <input type="email" id='email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
